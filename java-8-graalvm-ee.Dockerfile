@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM container-registry.oracle.com/graalvm/jdk-ee:ol7-java8
+FROM container-registry.oracle.com/graalvm/jdk-ee:ol9-java8-21
 
 LABEL author="Jenzoga" maintainer="jenzoga@celest.live"
 
