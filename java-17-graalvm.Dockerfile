@@ -23,9 +23,9 @@
 # FROM --platform=$TARGETOS/$TARGETARCH ghcr.io/graalvm/jdk-community:17
 FROM ghcr.io/graalvm/jdk-community:17
 
-LABEL author="Maki" maintainer="maki@hotmilk.space"
+LABEL author="Jenzoga" maintainer="jenzoga@celest.live"
 
-LABEL org.opencontainers.image.source="https://github.com/makidoll/pterodactyl-yolks"
+LABEL org.opencontainers.image.source="https://github.com/jenzoga/pterodactyl-yolks"
 LABEL org.opencontainers.image.licenses=MIT
 
 # RUN apt-get update -y && \

@@ -22,9 +22,9 @@
 
 FROM container-registry.oracle.com/graalvm/jdk-ee:ol7-java8
 
-LABEL author="Maki" maintainer="maki@hotmilk.space"
+LABEL author="Jenzoga" maintainer="jenzoga@celest.live"
 
-LABEL org.opencontainers.image.source="https://github.com/makidoll/pterodactyl-yolks"
+LABEL org.opencontainers.image.source="https://github.com/jenzoga/pterodactyl-yolks"
 LABEL org.opencontainers.image.licenses=MIT
 
 # RUN	apt-get update -y && \
