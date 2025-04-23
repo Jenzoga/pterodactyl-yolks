@@ -22,8 +22,12 @@
 # SOFTWARE.
 #
 
-# Default the TZ environment variable to UTC.
-TZ=${TZ:-UTC}
+# Default the TZ environment variable to host timezone or fall back to UTC.
+if [ -z "$TZ" ] && [ -f /etc/timezone ]; then
+  TZ=$(cat /etc/timezone)
+elif [ -z "$TZ" ]; then
+  TZ=UTC
+fi
 export TZ
 
 # Set environment variable that holds the Internal Docker IP
