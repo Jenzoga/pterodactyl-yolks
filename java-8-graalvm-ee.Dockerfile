@@ -32,9 +32,11 @@ LABEL org.opencontainers.image.licenses=MIT
 # useradd -d /home/container -m container
 
 RUN	microdnf update -y && \
-microdnf install -y lsof curl ca-certificates openssl git tar sqlite fontconfig freetype tzdata iproute libstdc++ && \
-microdnf clean all && \
-useradd -d /home/container -m container
+    microdnf install -y --nodocs \
+        lsof curl ca-certificates openssl tar sqlite tzdata iproute libstdc++ && \
+    microdnf clean all && \
+    rm -rf /var/cache/dnf /var/cache/man /usr/share/doc /usr/share/man && \
+    useradd -d /home/container -m container
 
 USER container
 ENV USER=container HOME=/home/container
