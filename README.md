@@ -6,3 +6,4 @@ https://github.com/Obydux/Minecraft-GraalVM-Flags
 -   `ghcr.io/jenzoga/pterodactyl-yolks:java-17-graalvm-ee`
 -   `ghcr.io/jenzoga/pterodactyl-yolks:java-8-graalvm-ee`
 -   `ghcr.io/jenzoga/pterodactyl-yolks:java-21-graalvm`
+-   `ghcr.io/jenzoga/pterodactyl-yolks:java-22-graalvm`
