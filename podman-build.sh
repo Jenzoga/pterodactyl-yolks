@@ -5,3 +5,4 @@ podman build --platform=linux/amd64 -t ghcr.io/jenzoga/pterodactyl-yolks:java-21
 podman build --platform=linux/amd64 -t ghcr.io/jenzoga/pterodactyl-yolks:java-22-graalvm -f java-22-graalvm.Dockerfile .
 podman build --platform=linux/amd64 -t ghcr.io/jenzoga/pterodactyl-yolks:java-23-graalvm -f java-23-graalvm.Dockerfile .
 podman build --platform=linux/amd64 -t ghcr.io/jenzoga/pterodactyl-yolks:java-24-graalvm -f java-24-graalvm.Dockerfile .
+podman build --platform=linux/amd64 -t ghcr.io/jenzoga/pterodactyl-yolks:cl-java17-graalvm-ee -f clearlinux-graalvm.Dockerfile .
