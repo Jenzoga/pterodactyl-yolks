@@ -13,20 +13,16 @@ ENV PATH=$JAVA_HOME/bin:$PATH
 # Install necessary packages and GraalVM
 RUN swupd update && \
     swupd bundle-add curl tar java-basic && \
-    curl -L -o graalvm.tar.gz https://download.oracle.com/graalvm/$GRAALVM_VERSION/ee/graalvm-ee-java8-linux-amd64-$GRAALVM_VERSION.tar.gz && \
-    mkdir -p /opt/graalvm && \
-    tar -xzf graalvm.tar.gz -C /opt/graalvm && \
-    rm graalvm.tar.gz && \
     swupd clean && \
     rm -rf /var/lib/swupd/* /usr/share/doc/* /usr/share/man/* && \
     useradd -d /home/container -m container
 
-# Verify installation
-RUN java -version
+# Install GraalVM EE manually
+COPY ./jdk/graalvm-ee-java8-21.3.14 /opt/
 
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
-COPY ./../java-entrypoint.sh /entrypoint.sh
+COPY ./java-entrypoint.sh /entrypoint.sh
 CMD [ "/bin/bash", "/entrypoint.sh" ]
