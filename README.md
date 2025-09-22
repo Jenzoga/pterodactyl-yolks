@@ -4,6 +4,8 @@ https://github.com/brucethemoose/Minecraft-Performance-Flags-Benchmarks
 
 https://github.com/MeowIce/meowice-flags
 
+https://unascribed.com/garden/jvm-args/
+
 https://github.com/Obydux/Minecraft-GraalVM-Flags
 
 -   `ghcr.io/jenzoga/pterodactyl-yolks:java-8-graalvm-ee`
