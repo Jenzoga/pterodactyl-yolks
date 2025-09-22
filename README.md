@@ -8,6 +8,8 @@ https://unascribed.com/garden/jvm-args/
 
 https://github.com/Obydux/Minecraft-GraalVM-Flags
 
+https://github.com/vanes430/java/tree/main
+
 -   `ghcr.io/jenzoga/pterodactyl-yolks:java-8-graalvm-ee`
 -   `ghcr.io/jenzoga/pterodactyl-yolks:java-17-graalvm-ee`
 
