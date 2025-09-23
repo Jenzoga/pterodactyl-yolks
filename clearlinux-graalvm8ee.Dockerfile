@@ -7,10 +7,6 @@ FROM clearlinux:latest
 # Set version variables
 ARG GRAALVM_DIR_NAME=graalvm-ee-java8-*
 
-# Create required directories and user metadata
-RUN mkdir -p /opt /usr/libexec && \
-    echo 'root:x:0:0:root:/root:/bin/bash' > /etc/passwd
-
 # Install GraalVM EE manually
 COPY ./jdk/graalvm-ee-java8-21.3.14 /opt/
 RUN mkdir -p /opt && \
@@ -21,9 +17,12 @@ ENV JAVA_HOME=/opt/graalvm
 ENV GRAALVM_HOME=/opt/graalvm
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
+RUN useradd -m -d /home/container -s /bin/bash container
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
+
+
 
 COPY ./../java-entrypoint.sh /entrypoint.sh
 CMD [ "/bin/bash", "/entrypoint.sh" ]
