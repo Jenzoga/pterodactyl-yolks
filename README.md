@@ -17,6 +17,7 @@ https://github.com/vanes430/java/tree/main
 -   `ghcr.io/jenzoga/pterodactyl-yolks:java-22-graalvm`
 -   `ghcr.io/jenzoga/pterodactyl-yolks:java-23-graalvm`
 -   `ghcr.io/jenzoga/pterodactyl-yolks:java-24-graalvm `
+-   `ghcr.io/jenzoga/pterodactyl-yolks:java-25-graalvm `
 
 ## To-Do List
 
