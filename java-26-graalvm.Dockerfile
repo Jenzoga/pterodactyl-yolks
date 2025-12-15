@@ -13,10 +13,13 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -eux; \
-    GRAALVM_URL=$(wget -qO- https://api.github.com/repos/graalvm/oracle-graalvm-ea-builds/releases/latest \
-      | grep browser_download_url \
-      | grep 'linux-x64.*tar.gz' \
-      | cut -d '"' -f 4); \
+    GRAALVM_URL="$(wget -qO- https://api.github.com/repos/graalvm/oracle-graalvm-ea-builds/releases \
+      | grep '"browser_download_url"' \
+      | grep -E 'graalvm-jdk-26.*linux-x64_bin\.tar\.gz' \
+      | cut -d '"' -f 4 \
+      | head -n 1)"; \
+    test -n "$GRAALVM_URL"; \
+    echo "Using GraalVM: $GRAALVM_URL"; \
     wget -O /tmp/graalvm.tar.gz "$GRAALVM_URL"; \
     mkdir -p /opt/graalvm; \
     tar -xzf /tmp/graalvm.tar.gz --strip-components=1 -C /opt/graalvm; \
@@ -34,5 +37,5 @@ USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
-COPY ../../entrypoint /entrypoint
-CMD [ "/entrypoint" ]
+COPY ./../java-entrypoint.sh /entrypoint.sh
+CMD [ "/bin/bash", "/entrypoint.sh" ]
