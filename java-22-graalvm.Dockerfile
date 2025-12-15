@@ -32,10 +32,21 @@ LABEL org.opencontainers.image.licenses=MIT
 # apt-get install -y lsof curl ca-certificates openssl git tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 && \
 # useradd -d /home/container -m container
 
-RUN	microdnf update -y && \
-microdnf install -y lsof curl ca-certificates openssl git tar sqlite fontconfig freetype tzdata iproute libstdc++ && \
-microdnf clean all && \
-useradd -d /home/container -m container
+#RUN	microdnf update -y && \
+#microdnf install -y lsof curl ca-certificates openssl git tar sqlite fontconfig freetype tzdata iproute libstdc++ && \
+#microdnf clean all && \
+#useradd -d /home/container -m container
+
+RUN microdnf update -y \
+    && microdnf install -y --nodocs \
+        lsof curl ca-certificates openssl tar sqlite tzdata iproute libstdc++ \
+    && microdnf clean all \
+    \
+    # Explicitly remove large directories not cleaned by microdnf
+    && rm -rf /var/cache/dnf /var/cache/man /usr/share/doc /usr/share/man /tmp/* /var/tmp/* \
+    \
+    # Create user and home directory in the same layer
+    && useradd -d /home/container -m container
 
 USER container
 ENV USER=container HOME=/home/container

@@ -21,7 +21,8 @@
 #
 
 # FROM --platform=$TARGETOS/$TARGETARCH ghcr.io/graalvm/jdk-community:21
-FROM ghcr.io/graalvm/jdk-community:24
+#FROM ghcr.io/graalvm/jdk-community:24
+FROM ghcr.io/graalvm/jdk-community:24-ol9
 
 LABEL author="Jenzoga" maintainer="jenzoga@celest.live"
 
